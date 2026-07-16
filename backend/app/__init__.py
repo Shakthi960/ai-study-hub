@@ -1,5 +1,5 @@
 import os
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory, jsonify
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 from app.config import config
@@ -34,15 +34,12 @@ def create_app(config_name="development"):
 
     if os.getenv("FLASK_ENV") == "production":
         static_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend", "dist")
-        assets_dir = os.path.join(static_dir, "assets")
-
-        @app.route("/assets/<path:filename>")
-        def serve_assets(filename):
-            return send_from_directory(assets_dir, filename)
 
         @app.route("/", defaults={"path": ""})
         @app.route("/<path:path>")
         def serve_frontend(path):
+            if path.startswith("api/"):
+                return jsonify({"error": "Not found"}), 404
             file_path = os.path.join(static_dir, path)
             if path and os.path.isfile(file_path):
                 return send_from_directory(static_dir, path)
