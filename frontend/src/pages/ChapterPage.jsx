@@ -267,8 +267,8 @@ export default function ChapterPage() {
       <div className="relative mb-6">
         <button
           onClick={() => scrollTabs(-1)}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-1 bg-white dark:bg-gray-800
-                     shadow-md rounded-full hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-1 bg-white dark:bg-[#30343f]
+                     shadow-md rounded-full hover:bg-gray-50 dark:hover:bg-[#3d4249] transition-colors"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -278,7 +278,7 @@ export default function ChapterPage() {
         <div ref={tabsRef} className="flex gap-2 overflow-x-auto scrollbar-hide px-8 pb-2" style={{ scrollbarWidth: 'none' }}>
           {topicsLoading ? (
             Array.from({ length: 3 }).map((_, i) => (
-              <div key={i} className="h-10 w-24 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse shrink-0" />
+              <div key={i} className="h-10 w-24 bg-gray-200 dark:bg-[#3d4249] rounded-lg animate-pulse shrink-0" />
             ))
           ) : (
             topics?.map((topic) => (
@@ -288,7 +288,7 @@ export default function ChapterPage() {
                            cursor-pointer transition-all duration-200
                            ${topic.id === activeTopicId
                     ? 'bg-primary-600 text-white shadow-md'
-                    : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                    : 'bg-gray-100 dark:bg-[#30343f] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#3d4249]'
                   }`}
                 onClick={() => setActiveTopicId(topic.id)}
               >
@@ -307,7 +307,7 @@ export default function ChapterPage() {
                       if (e.key === 'Enter') e.target.blur()
                       if (e.key === 'Escape') setRenamingTopicId(null)
                     }}
-                    className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-2 py-0.5 rounded
+                    className="bg-white dark:bg-[#30343f] text-gray-900 dark:text-white px-2 py-0.5 rounded
                                border border-primary-500 outline-none w-32 text-sm"
                     autoFocus
                     onClick={(e) => e.stopPropagation()}
@@ -351,8 +351,8 @@ export default function ChapterPage() {
             <button
               onClick={() => setShowAddTopic(true)}
               className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium shrink-0
-                         bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400
-                         hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                         bg-gray-100 dark:bg-[#30343f] text-gray-500 dark:text-gray-400
+                         hover:bg-gray-200 dark:hover:bg-[#3d4249] transition-colors"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -363,8 +363,8 @@ export default function ChapterPage() {
 
         <button
           onClick={() => scrollTabs(1)}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-1 bg-white dark:bg-gray-800
-                     shadow-md rounded-full hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-1 bg-white dark:bg-[#30343f]
+                     shadow-md rounded-full hover:bg-gray-50 dark:hover:bg-[#3d4249] transition-colors"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -372,7 +372,7 @@ export default function ChapterPage() {
         </button>
       </div>
 
-      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 min-h-[500px]">
+      <div className="bg-white dark:bg-[#30343f] rounded-xl border border-gray-200 dark:border-[#3d4249] min-h-[500px]">
         {contentLoading ? (
           <div className="p-8"><LoadingSpinner /></div>
         ) : activeTopicId ? (

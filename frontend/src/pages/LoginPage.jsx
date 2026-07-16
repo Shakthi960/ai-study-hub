@@ -17,7 +17,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-blue-100 dark:from-gray-900 dark:to-gray-800 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-primary-100 dark:from-[#1b2021] dark:to-[#30343f] px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-primary-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -29,7 +29,7 @@ export default function LoginPage() {
           </p>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+        <div className="bg-white dark:bg-[#30343f] rounded-2xl shadow-xl p-8">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 text-center">
             Sign in to get started
           </h2>
@@ -37,7 +37,7 @@ export default function LoginPage() {
           <button
             onClick={handleLogin}
             className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-gray-300
-                       dark:border-gray-600 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700
+                       dark:border-[#3d4249] rounded-xl hover:bg-gray-50 dark:hover:bg-[#3d4249]
                        transition-colors font-medium text-gray-700 dark:text-gray-200"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24">

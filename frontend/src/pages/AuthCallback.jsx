@@ -19,7 +19,7 @@ export default function AuthCallback() {
   }, [user, navigate])
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 dark:bg-[#1b2021]">
       <LoadingSpinner size="lg" />
       <p className="mt-4 text-gray-600 dark:text-gray-400">Completing sign in...</p>
     </div>

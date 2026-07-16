@@ -41,7 +41,7 @@ export default function Quiz({ questions, onSubmit, onClose }) {
     if (!submitted) {
       return answers[currentQ] === optionIndex
         ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300'
-        : 'border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500'
+        : 'border-gray-200 dark:border-[#3d4249] hover:border-gray-300 dark:hover:border-[#4d5259]'
     }
 
     if (optionIndex === question.correct_answer) {
@@ -86,7 +86,7 @@ export default function Quiz({ questions, onSubmit, onClose }) {
             const userAnswer = result.answers_data?.[i]
             const isCorrect = parseInt(userAnswer) === q.correct_answer
             return (
-              <div key={i} className="border border-gray-200 dark:border-gray-600 rounded-lg p-4">
+              <div key={i} className="border border-gray-200 dark:border-[#3d4249] rounded-lg p-4">
                 <div className="flex items-start gap-2 mb-2">
                   <span
                     className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
@@ -156,7 +156,7 @@ export default function Quiz({ questions, onSubmit, onClose }) {
         </span>
       </div>
 
-      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
+      <div className="w-full bg-gray-200 dark:bg-[#3d4249] rounded-full h-1.5">
         <div
           className="bg-primary-600 h-1.5 rounded-full transition-all duration-300"
           style={{ width: `${((currentQ + 1) / questions.length) * 100}%` }}

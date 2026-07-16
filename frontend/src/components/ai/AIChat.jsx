@@ -44,8 +44,8 @@ export default function AIChat({ onClose, chapterId }) {
   return (
     <div className="fixed inset-0 z-50 flex justify-end">
       <div className="fixed inset-0 bg-black/30" onClick={onClose} />
-      <div className="relative w-full max-w-md bg-white dark:bg-gray-800 shadow-2xl flex flex-col h-full">
-        <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+      <div className="relative w-full max-w-md bg-white dark:bg-[#30343f] shadow-2xl flex flex-col h-full">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 dark:border-[#3d4249]">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-xs">AI</span>
@@ -59,7 +59,7 @@ export default function AIChat({ onClose, chapterId }) {
           </div>
           <button
             onClick={onClose}
-            className="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+            className="p-1 hover:bg-gray-100 dark:hover:bg-[#3d4249] rounded-lg transition-colors"
           >
             <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -88,7 +88,7 @@ export default function AIChat({ onClose, chapterId }) {
                 className={`max-w-[85%] px-4 py-2.5 rounded-2xl text-sm ${
                   msg.role === 'user'
                     ? 'bg-primary-600 text-white rounded-br-md'
-                    : 'bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-bl-md'
+                    : 'bg-gray-100 dark:bg-[#3d4249] text-gray-900 dark:text-gray-100 rounded-bl-md'
                 }`}
               >
                 {msg.role === 'assistant' ? (
@@ -104,7 +104,7 @@ export default function AIChat({ onClose, chapterId }) {
 
           {chatMutation.isPending && (
             <div className="flex justify-start">
-              <div className="bg-gray-100 dark:bg-gray-700 px-4 py-3 rounded-2xl rounded-bl-md">
+              <div className="bg-gray-100 dark:bg-[#3d4249] px-4 py-3 rounded-2xl rounded-bl-md">
                 <div className="flex gap-1">
                   <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
                   <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
@@ -116,7 +116,7 @@ export default function AIChat({ onClose, chapterId }) {
           <div ref={messagesEnd} />
         </div>
 
-        <form onSubmit={handleSend} className="p-4 border-t border-gray-200 dark:border-gray-700">
+        <form onSubmit={handleSend} className="p-4 border-t border-gray-200 dark:border-[#3d4249]">
           <div className="flex gap-2">
             <input
               ref={inputRef}

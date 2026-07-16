@@ -142,7 +142,7 @@ export default function MarkdownEditor({ initialContent = '', onSave, isSaving, 
   if (isEditing) {
     return (
       <div className="flex flex-col h-full" onKeyDown={handleKeyDown}>
-        <div className="flex items-center justify-between px-4 py-2 border-b border-gray-200 dark:border-gray-700 shrink-0">
+        <div className="flex items-center justify-between px-4 py-2 border-b border-gray-200 dark:border-[#3d4249] shrink-0">
           <div className="flex items-center gap-3">
             <span className="text-sm text-gray-500 dark:text-gray-400">Markdown</span>
             <input
@@ -202,7 +202,7 @@ export default function MarkdownEditor({ initialContent = '', onSave, isSaving, 
           />
         </div>
 
-        <div className="px-4 py-3 border-t border-gray-200 dark:border-gray-700 shrink-0 space-y-2">
+        <div className="px-4 py-3 border-t border-gray-200 dark:border-[#3d4249] shrink-0 space-y-2">
           <div className="flex items-center justify-between">
             <label className="text-xs font-medium text-gray-500 dark:text-gray-400">
               Colab Notebook Links
@@ -256,7 +256,7 @@ export default function MarkdownEditor({ initialContent = '', onSave, isSaving, 
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex items-center justify-between px-4 py-2 border-b border-gray-200 dark:border-gray-700 shrink-0">
+      <div className="flex items-center justify-between px-4 py-2 border-b border-gray-200 dark:border-[#3d4249] shrink-0">
         <span className="text-sm text-gray-500 dark:text-gray-400">Preview</span>
         {!isReadOnly && (
           <button
@@ -290,7 +290,7 @@ export default function MarkdownEditor({ initialContent = '', onSave, isSaving, 
         )}
 
         {colabLinks.length > 0 && (
-          <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700 space-y-2">
+          <div className="mt-6 pt-4 border-t border-gray-200 dark:border-[#3d4249] space-y-2">
             {colabLinks.map((link, i) => (
               <a
                 key={i}

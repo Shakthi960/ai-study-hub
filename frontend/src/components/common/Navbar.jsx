@@ -18,7 +18,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-40">
+      <nav className="bg-white dark:bg-[#30343f] border-b border-gray-200 dark:border-[#3d4249] sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link to="/" className="flex items-center gap-2">
@@ -34,7 +34,7 @@ export default function Navbar() {
               <button
                 onClick={() => setShowSearch(true)}
                 className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200
-                           hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                           hover:bg-gray-100 dark:hover:bg-[#3d4249] rounded-lg transition-colors"
                 title="Search"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -46,7 +46,7 @@ export default function Navbar() {
               <button
                 onClick={() => setShowChat(true)}
                 className="p-2 text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400
-                           hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                           hover:bg-gray-100 dark:hover:bg-[#3d4249] rounded-lg transition-colors"
                 title="AI Chat"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -58,7 +58,7 @@ export default function Navbar() {
               <div className="relative">
                 <button
                   onClick={() => setShowMenu(!showMenu)}
-                  className="flex items-center gap-2 p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                  className="flex items-center gap-2 p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-[#3d4249] transition-colors"
                 >
                   {user?.avatar_url ? (
                     <img src={user.avatar_url} alt="" className="w-8 h-8 rounded-full" />
@@ -74,9 +74,9 @@ export default function Navbar() {
                 {showMenu && (
                   <>
                     <div className="fixed inset-0 z-40" onClick={() => setShowMenu(false)} />
-                    <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-xl shadow-lg
-                                    border border-gray-200 dark:border-gray-700 py-2 z-50">
-                      <div className="px-4 py-2 border-b border-gray-100 dark:border-gray-700">
+                    <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-[#30343f] rounded-xl shadow-lg
+                                    border border-gray-200 dark:border-[#3d4249] py-2 z-50">
+                      <div className="px-4 py-2 border-b border-gray-100 dark:border-[#3d4249]">
                         <p className="text-sm font-medium text-gray-900 dark:text-white truncate">
                           {user?.display_name || 'User'}
                         </p>
@@ -87,7 +87,7 @@ export default function Navbar() {
                       <button
                         onClick={handleLogout}
                         className="w-full text-left px-4 py-2 text-sm text-red-600 dark:text-red-400
-                                   hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                                   hover:bg-gray-100 dark:hover:bg-[#3d4249] transition-colors"
                       >
                         Sign out
                       </button>

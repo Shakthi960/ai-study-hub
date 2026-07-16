@@ -19,16 +19,16 @@ export default function Modal({ isOpen, onClose, title, children, maxWidth = 'ma
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div className="fixed inset-0 bg-black/50" onClick={handleBackdrop} />
-      <div className={`relative bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full ${maxWidth} max-h-[90vh] flex flex-col`}>
+      <div className={`relative bg-white dark:bg-[#30343f] rounded-2xl shadow-2xl w-full ${maxWidth} max-h-[90vh] flex flex-col`}>
         {title && (
-          <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-700 shrink-0">
+          <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-[#3d4249] shrink-0">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{title}</h3>
             <button
               onClick={preventClose ? undefined : onClose}
               className={`p-1 rounded-lg transition-colors ${
                 preventClose
                   ? 'text-gray-300 dark:text-gray-600 cursor-not-allowed'
-                  : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500'
+                  : 'hover:bg-gray-100 dark:hover:bg-[#3d4249] text-gray-500'
               }`}
               disabled={preventClose}
             >

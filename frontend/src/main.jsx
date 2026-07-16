@@ -27,7 +27,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             position="top-right"
             toastOptions={{
               duration: 3000,
-              style: { borderRadius: '10px', background: '#1f2937', color: '#f9fafb' },
+              style: { borderRadius: '10px', background: '#30343f', color: '#f9fafb' },
             }}
           />
         </AuthProvider>
