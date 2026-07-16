@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+  }
+  .dark body {
+    @apply bg-gray-900 text-gray-100;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 text-white px-4 py-2 rounded-lg font-medium
+           hover:bg-primary-700 transition-colors duration-200
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-800 px-4 py-2 rounded-lg font-medium
+           hover:bg-gray-300 transition-colors duration-200
+           focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed
+           dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600;
+  }
+  .btn-danger {
+    @apply bg-red-600 text-white px-4 py-2 rounded-lg font-medium
+           hover:bg-red-700 transition-colors duration-200
+           focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .input-field {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent
+           dark:bg-gray-800 dark:border-gray-600 dark:text-gray-100;
+  }
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-200 p-6
+           hover:shadow-md transition-shadow duration-200
+           dark:bg-gray-800 dark:border-gray-700;
+  }
+}
+
+/* Markdown preview styles */
+.markdown-body {
+  line-height: 1.7;
+  color: #1f2937;
+}
+.dark .markdown-body {
+  color: #e5e7eb;
+}
+.markdown-body h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #111827;
+}
+.dark .markdown-body h1 { color: #f9fafb; }
+.markdown-body h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #111827;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+.dark .markdown-body h2 { color: #f9fafb; border-color: #374151; }
+.markdown-body h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #111827;
+}
+.dark .markdown-body h3 { color: #f9fafb; }
+.markdown-body h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+.markdown-body p {
+  margin-bottom: 0.75rem;
+}
+.markdown-body ul, .markdown-body ol {
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+}
+.markdown-body ul { list-style-type: disc; }
+.markdown-body ol { list-style-type: decimal; }
+.markdown-body li {
+  margin-bottom: 0.25rem;
+}
+.markdown-body li > ul, .markdown-body li > ol {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+.markdown-body strong {
+  font-weight: 700;
+}
+.markdown-body em {
+  font-style: italic;
+}
+.markdown-body code {
+  background: #f3f4f6;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+}
+.dark .markdown-body code {
+  background: #374151;
+  color: #e5e7eb;
+}
+.markdown-body pre {
+  background: #1f2937;
+  color: #e5e7eb;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin-bottom: 0.75rem;
+}
+.markdown-body pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+.markdown-body blockquote {
+  border-left: 4px solid #3b82f6;
+  padding-left: 1rem;
+  margin-left: 0;
+  margin-bottom: 0.75rem;
+  color: #6b7280;
+  font-style: italic;
+}
+.markdown-body a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+.dark .markdown-body a { color: #60a5fa; }
+.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0.75rem;
+}
+.markdown-body th, .markdown-body td {
+  border: 1px solid #d1d5db;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+.dark .markdown-body th, .dark .markdown-body td {
+  border-color: #4b5563;
+}
+.markdown-body th {
+  background: #f9fafb;
+  font-weight: 600;
+}
+.dark .markdown-body th { background: #374151; }
+.markdown-body hr {
+  border: none;
+  border-top: 1px solid #d1d5db;
+  margin: 1.5rem 0;
+}
+.markdown-body img {
+  max-width: 100%;
+  border-radius: 0.5rem;
+}
