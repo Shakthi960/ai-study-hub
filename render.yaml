@@ -28,11 +28,6 @@ services:
         sync: false
       - key: VITE_SUPABASE_ANON_KEY
         sync: false
-    buildArgs:
-      - key: VITE_SUPABASE_URL
-        value: VITE_SUPABASE_URL
-      - key: VITE_SUPABASE_ANON_KEY
-        value: VITE_SUPABASE_ANON_KEY
     healthCheckPath: /api/health
 
 databases:
