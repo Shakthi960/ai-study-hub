@@ -23,8 +23,4 @@ services:
         sync: false
       - key: CORS_ORIGINS
         value: ""
-      - key: VITE_SUPABASE_URL
-        sync: false
-      - key: VITE_SUPABASE_ANON_KEY
-        sync: false
     healthCheckPath: /api/health

@@ -3,9 +3,6 @@ WORKDIR /app/frontend
 COPY frontend/package.json frontend/package-lock.json ./
 RUN npm ci
 COPY frontend/ ./
-RUN echo "VITE_SUPABASE_URL=$VITE_SUPABASE_URL" > .env && \
-    echo "VITE_SUPABASE_ANON_KEY=$VITE_SUPABASE_ANON_KEY" >> .env
-RUN cat .env
 RUN npm run build
 
 FROM python:3.11-slim
