@@ -39,7 +39,6 @@ export default function MarkdownEditor({ initialContent = '', onSave, isSaving, 
     const p = parseContent(initialContent)
     setContent(p.body)
     setColabLinks(p.colab_links)
-    setIsEditing(!p.body && !isReadOnly)
     hasChanges.current = false
   }, [initialContent])
 

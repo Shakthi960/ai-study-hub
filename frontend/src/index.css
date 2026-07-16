@@ -166,6 +166,11 @@
   margin: 1.5rem 0;
 }
 .markdown-body img {
-  max-width: 100%;
+  max-width: 50%;
   border-radius: 0.5rem;
+}
+@media (max-width: 640px) {
+  .markdown-body img {
+    max-width: 100%;
+  }
 }
