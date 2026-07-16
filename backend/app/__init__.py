@@ -33,7 +33,7 @@ def create_app(config_name="development"):
         return {"status": "ok"}
 
     if os.getenv("FLASK_ENV") == "production":
-        static_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "frontend", "dist")
+        static_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend", "dist")
         assets_dir = os.path.join(static_dir, "assets")
 
         @app.route("/assets/<path:filename>")
