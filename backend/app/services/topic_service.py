@@ -6,8 +6,10 @@ from app.models.content import Content
 
 
 def get_topics_for_chapter(chapter_id, user_id):
-    chapter = Chapter.query.filter_by(id=chapter_id, user_id=user_id).first()
+    chapter = Chapter.query.filter_by(id=chapter_id).first()
     if not chapter:
+        return None
+    if chapter.user_id != user_id and not chapter.is_public:
         return None
     return Topic.query.filter_by(chapter_id=chapter_id).order_by(Topic.order_index).all()
 
@@ -16,8 +18,10 @@ def get_topic_by_id(topic_id, user_id):
     topic = Topic.query.get(topic_id)
     if not topic:
         return None
-    chapter = Chapter.query.filter_by(id=topic.chapter_id, user_id=user_id).first()
+    chapter = Chapter.query.filter_by(id=topic.chapter_id).first()
     if not chapter:
+        return None
+    if chapter.user_id != user_id and not chapter.is_public:
         return None
     return topic
 

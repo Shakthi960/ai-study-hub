@@ -24,11 +24,11 @@ function packContent(body, colab_links) {
   return body
 }
 
-export default function MarkdownEditor({ initialContent = '', onSave, isSaving }) {
+export default function MarkdownEditor({ initialContent = '', onSave, isSaving, isReadOnly = false }) {
   const parsed = parseContent(initialContent)
   const [content, setContent] = useState(parsed.body)
   const [colabLinks, setColabLinks] = useState(parsed.colab_links)
-  const [isEditing, setIsEditing] = useState(!parsed.body)
+  const [isEditing, setIsEditing] = useState(!parsed.body && !isReadOnly)
   const [uploading, setUploading] = useState(false)
   const autoSaveTimer = useRef(null)
   const hasChanges = useRef(false)
@@ -39,7 +39,7 @@ export default function MarkdownEditor({ initialContent = '', onSave, isSaving }
     const p = parseContent(initialContent)
     setContent(p.body)
     setColabLinks(p.colab_links)
-    setIsEditing(!p.body)
+    setIsEditing(!p.body && !isReadOnly)
     hasChanges.current = false
   }, [initialContent])
 
@@ -100,6 +100,7 @@ export default function MarkdownEditor({ initialContent = '', onSave, isSaving }
   }
 
   const handleEdit = () => {
+    if (isReadOnly) return
     setIsEditing(true)
     setTimeout(() => textareaRef.current?.focus(), 0)
   }
@@ -257,16 +258,18 @@ export default function MarkdownEditor({ initialContent = '', onSave, isSaving }
     <div className="flex flex-col h-full">
       <div className="flex items-center justify-between px-4 py-2 border-b border-gray-200 dark:border-gray-700 shrink-0">
         <span className="text-sm text-gray-500 dark:text-gray-400">Preview</span>
-        <button
-          onClick={handleEdit}
-          className="flex items-center gap-1.5 text-sm text-primary-600 hover:text-primary-700 font-medium transition-colors"
-        >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-          </svg>
-          Edit
-        </button>
+        {!isReadOnly && (
+          <button
+            onClick={handleEdit}
+            className="flex items-center gap-1.5 text-sm text-primary-600 hover:text-primary-700 font-medium transition-colors"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+            </svg>
+            Edit
+          </button>
+        )}
       </div>
       <div className="flex-1 overflow-auto p-4">
         {content ? (

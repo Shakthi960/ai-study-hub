@@ -10,6 +10,7 @@ from app.services.chapter_service import (
     toggle_chapter_public,
     get_public_chapters,
     get_public_chapter_by_id,
+    can_access_chapter,
 )
 
 chapters_bp = Blueprint("chapters", __name__)
@@ -31,10 +32,12 @@ def list_chapters():
 @jwt_required()
 def get_chapter(chapter_id):
     user_id = get_jwt_identity()
-    chapter = get_chapter_by_id(chapter_id, user_id)
+    chapter, is_owner = can_access_chapter(chapter_id, user_id)
     if not chapter:
         return jsonify({"error": "Chapter not found"}), 404
-    return jsonify(chapter.to_dict(include_topics=True))
+    data = chapter.to_dict(include_topics=True)
+    data["is_owner"] = is_owner
+    return jsonify(data)
 
 
 @chapters_bp.route("/api/chapters", methods=["POST"])

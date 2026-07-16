@@ -67,3 +67,14 @@ def get_public_chapters():
 
 def get_public_chapter_by_id(chapter_id):
     return Chapter.query.filter_by(id=chapter_id, is_public=True).first()
+
+
+def can_access_chapter(chapter_id, user_id):
+    chapter = Chapter.query.filter_by(id=chapter_id).first()
+    if not chapter:
+        return None, False
+    if chapter.user_id == user_id:
+        return chapter, True
+    if chapter.is_public:
+        return chapter, False
+    return None, False

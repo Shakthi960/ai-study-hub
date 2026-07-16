@@ -8,8 +8,10 @@ def get_content_by_topic_id(topic_id, user_id):
     topic = Topic.query.get(topic_id)
     if not topic:
         return None
-    chapter = Chapter.query.filter_by(id=topic.chapter_id, user_id=user_id).first()
+    chapter = Chapter.query.filter_by(id=topic.chapter_id).first()
     if not chapter:
+        return None
+    if chapter.user_id != user_id and not chapter.is_public:
         return None
     return Content.query.filter_by(topic_id=topic_id).first()
 
