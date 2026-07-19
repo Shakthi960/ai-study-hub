@@ -36,10 +36,17 @@ export default function MarkdownEditor({ initialContent = '', onSave, isSaving, 
   const fileInputRef = useRef(null)
 
   useEffect(() => {
+    if (hasChanges.current) return
     const p = parseContent(initialContent)
-    setContent(p.body)
-    setColabLinks(p.colab_links)
-    hasChanges.current = false
+    setContent((prev) => {
+      if (prev === p.body) return prev
+      return p.body
+    })
+    setColabLinks((prev) => {
+      const next = p.colab_links
+      if (JSON.stringify(prev) === JSON.stringify(next)) return prev
+      return next
+    })
   }, [initialContent])
 
   const scheduleAutoSave = useCallback(
